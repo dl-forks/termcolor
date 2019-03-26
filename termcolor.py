@@ -28,7 +28,7 @@ import os
 import re
 
 
-__ALL__ = [ 'colored', 'cprint' ]
+__all__ = [ 'colored', 'cprint' ]
 
 VERSION = (1, 1, 0)
 
