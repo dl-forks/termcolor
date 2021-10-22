@@ -53,21 +53,25 @@ cprint("Attention!", 'red', attrs=['bold'], file=sys.stderr)
 
 ## Terminal properties
 
-| Terminal      | bold    | dark  | underline | blink      | reverse | concealed |
-| ------------- | ------- | ----- | --------- | ---------- | ------- | --------- |
-| xterm         | 🟢 yes  | ❌ no  | 🟢 yes     | bold       | 🟢 yes  | 🟢 yes    |
-| linux         | 🟢 yes  | 🟢 yes | bold      | 🟢 yes      | 🟢 yes  | ❌ no     |
-| rxvt          | 🟢 yes  | ❌ no  | 🟢 yes     | bold/black | 🟢 yes  | ❌ no     |
-| dtterm        | 🟢 yes  | 🟢 yes | 🟢 yes     | reverse    | 🟢 yes  | 🟢 yes   |
-| teraterm      | reverse | ❌ no  | 🟢 yes     | rev/red    | 🟢 yes   | ❌ no     |
-| aixterm       | normal  | ❌ no  | 🟢 yes     | ❌ no        | 🟢 yes   | 🟢 yes  |
-| PuTTY         | color   | ❌ no  | 🟢 yes     | ❌ no       | 🟢 yes    | ❌ no   |
-| Windows       | ❌ no    | ❌ no  | ❌ no      | ❌ no       | 🟢 yes    | ❌ no    |
-| Cygwin SSH    | 🟢 yes  | ❌ no  | color      | color      | color     | 🟢 yes  |
-| Mac Terminal  | 🟢 yes  | ❌ no  | 🟢 yes     | 🟢 yes     | 🟢 yes    | 🟢 yes  |
+| Terminal     | bold    | dark | underline | blink      | reverse | concealed |
+| ------------ | ------- | ---- | --------- | ---------- | ------- | --------- |
+| xterm        | yes     | no   | yes       | bold       | yes     | yes       |
+| linux        | yes     | yes  | bold      | yes        | yes     | no        |
+| rxvt         | yes     | no   | yes       | bold/black | yes     | no        |
+| dtterm       | yes     | yes  | yes       | reverse    | yes     | yes       |
+| teraterm     | reverse | no   | yes       | rev/red    | yes     | no        |
+| aixterm      | normal  | no   | yes       | no         | yes     | yes       |
+| PuTTY        | color   | no   | yes       | no         | yes     | no        |
+| Windows      | no      | no   | no        | no         | yes     | no        |
+| Cygwin SSH   | yes     | no   | color     | color      | color   | yes       |
+| Mac Terminal | yes     | no   | yes       | yes        | yes     | yes       |
 
 ## Changes
   
+#### 1.3.0 (23.10.2021)
+
+- Converted to package.
+
 #### 1.1.0 (13.01.2011)
 
 - Added cprint function.

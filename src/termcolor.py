@@ -29,9 +29,6 @@ import re
 import sys
 
 
-__all__ = [ 'colored', 'cprint' ]
-
-VERSION = (1, 2, 0)
 
 ATTRIBUTES = {
     'bold': 1,
