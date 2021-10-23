@@ -1,62 +1,61 @@
-"""ANSII Color formatting for output in terminal."""
-
 from __future__ import print_function
 import os
 import re
 import sys
 
+from termcolor.enum import *
 
 ATTRIBUTES = {
-    'bold': 1,
-    'dark': 2,
-    'underline': 4,
-    'blink': 5,
-    'reverse': 7,
-    'concealed': 8,
+    ATTR_BOLD: 1,
+    ATTR_DARK: 2,
+    ATTR_UNDERLINE: 4,
+    ATTR_BLINK: 5,
+    ATTR_REVERSE: 7,
+    ATTR_CONCEALED: 8,
 }
 
 ATTRIBUTES_RE = '\033\[(?:%s)m' % '|'.join(['%d' % v for v in ATTRIBUTES.values()])
 
 HIGHLIGHTS = {
-    'on_black': 40,
-    'on_grey': 40, # is actually black
-    'on_red': 41,
-    'on_green': 42,
-    'on_yellow': 43,
-    'on_blue': 44,
-    'on_magenta': 45,
-    'on_cyan': 46,
-    'on_light_grey': 47,
-    'on_dark_grey': 100,
-    'on_light_red': 101,
-    'on_light_green': 102,
-    'on_light_yellow': 103,
-    'on_light_blue': 104,
-    'on_light_magenta': 105,
-    'on_light_cyan': 106,
-    'on_white': 107,
+    ON_BLACK: 40,
+    ON_GREY: 40,  # is actually black
+    ON_RED: 41,
+    ON_GREEN: 42,
+    ON_YELLOW: 43,
+    ON_BLUE: 44,
+    ON_MAGENTA: 45,
+    ON_CYAN: 46,
+    ON_LIGHT_GREY: 47,
+    ON_DARK_GREY: 100,
+    ON_LIGHT_RED: 101,
+    ON_LIGHT_GREEN: 102,
+    ON_LIGHT_YELLOW: 103,
+    ON_LIGHT_BLUE: 104,
+    ON_LIGHT_MAGENTA: 105,
+    ON_LIGHT_CYAN: 106,
+    ON_WHITE: 107,
 }
 
 HIGHLIGHTS_RE = '\033\[(?:%s)m' % '|'.join(['%d' % v for v in HIGHLIGHTS.values()])
 
 COLORS = {
-    'black': 30,
-    'grey': 30, # is actually black
-    'red': 31,
-    'green': 32,
-    'yellow': 33,
-    'blue': 34,
-    'magenta': 35,
-    'cyan': 36,
-    'light_grey': 37,
-    'dark_grey': 90,
-    'light_red': 91,
-    'light_green': 92,
-    'light_yellow': 93,
-    'light_blue': 94,
-    'light_magenta': 95,
-    'light_cyan': 96,
-    'white': 97,
+    COLOR_BLACK: 30,
+    COLOR_GREY: 30,  # is actually black
+    COLOR_RED: 31,
+    COLOR_GREEN: 32,
+    COLOR_YELLOW: 33,
+    COLOR_BLUE: 34,
+    COLOR_MAGENTA: 35,
+    COLOR_CYAN: 36,
+    COLOR_LIGHT_GREY: 37,
+    COLOR_DARK_GREY: 90,
+    COLOR_LIGHT_RED: 91,
+    COLOR_LIGHT_GREEN: 92,
+    COLOR_LIGHT_YELLOW: 93,
+    COLOR_LIGHT_BLUE: 94,
+    COLOR_LIGHT_MAGENTA: 95,
+    COLOR_LIGHT_CYAN: 96,
+    COLOR_WHITE: 97,
 }
 
 COLORS_RE = '\033\[(?:%s)m' % '|'.join(['%d' % v for v in COLORS.values()])
@@ -67,6 +66,7 @@ RESET_RE = '\033\[0m'
 
 def colored(text, color=None, on_color=None, attrs=None):
     """Colorize text, while stripping nested ANSI color sequences.
+    Valid values for parameters are listed in termcolor.enum.
 
     Available text colors:
         red, green, yellow, blue, magenta, cyan, white, black, light_grey,
@@ -85,6 +85,7 @@ def colored(text, color=None, on_color=None, attrs=None):
         bold, dark, underline, blink, reverse, concealed.
 
     Example:
+        colored('Hello, World!', termcolor.COLOR_GREEN)
         colored('Hello, World!', 'red', 'on_black', ['bold', 'blink'])
         colored('Hello, World!', 191, 182)
     """
@@ -121,60 +122,3 @@ def cprint(text, color=None, on_color=None, attrs=None, **kwargs):
     """
 
     print((colored(text, color, on_color, attrs)), **kwargs)
-
-
-if __name__ == '__main__':
-    print('Current terminal type: %s' % os.getenv('TERM'))
-    print('Test colors:')
-    cprint('Black color', 'black')
-    cprint('Red color', 'red')
-    cprint('Green color', 'green')
-    cprint('Yellow color', 'yellow')
-    cprint('Blue color', 'blue')
-    cprint('Magenta color', 'magenta')
-    cprint('Cyan color', 'cyan')
-    cprint('White color', 'white')
-    cprint('Light grey color', 'light_grey')
-    cprint('Dark grey color', 'dark_grey')
-    cprint('Light red color', 'light_red')
-    cprint('Light green color', 'light_green')
-    cprint('Light yellow color', 'light_yellow')
-    cprint('Light blue color', 'light_blue')
-    cprint('Light magenta color', 'light_magenta')
-    cprint('Light cyan color', 'light_cyan')
-    print(('-' * 78))
-
-    print('Test highlights:')
-    cprint('On black color', on_color='on_black')
-    cprint('On red color', on_color='on_red')
-    cprint('On green color', on_color='on_green')
-    cprint('On yellow color', on_color='on_yellow')
-    cprint('On blue color', on_color='on_blue')
-    cprint('On magenta color', on_color='on_magenta')
-    cprint('On cyan color', on_color='on_cyan')
-    cprint('On white color', color='grey', on_color='on_white')
-    print('-' * 78)
-
-    print('Test attributes:')
-    cprint('Bold black color', 'black', attrs=['bold'])
-    cprint('Dark red color', 'red', attrs=['dark'])
-    cprint('Underline green color', 'green', attrs=['underline'])
-    cprint('Blink yellow color', 'yellow', attrs=['blink'])
-    cprint('Reversed blue color', 'blue', attrs=['reverse'])
-    cprint('Concealed Magenta color', 'magenta', attrs=['concealed'])
-    cprint('Bold underline reverse cyan color', 'cyan',
-            attrs=['bold', 'underline', 'reverse'])
-    cprint('Dark blink concealed white color', 'white',
-            attrs=['dark', 'blink', 'concealed'])
-    print(('-' * 78))
-
-    print('Test mixing:')
-    cprint('Underline red on black color', 'red', 'on_black', ['underline'])
-    cprint('Reversed green on red color', 'green', 'on_red', ['reverse'])
-    print(('-' * 78))
-
-    print('Test 256 colors:')
-    for i in range(1,256):
-        lb = '' if i % 16 != 0 else '\n'
-        cprint(format(i, '3'), on_color=i, end=lb)
-    print()
