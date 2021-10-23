@@ -130,8 +130,9 @@ def colored(text, color=None, on_color=None, attrs=None):
                 text = fmt256_str % (48, on_color, text)
         if attrs is not None:
             text = re.sub(ATTRIBUTES_RE + '(.*?)' + RESET_RE, r'\1', text)
-            for attr in attrs if hasattr(attrs, '__iter__') else [attrs]:
-                text = fmt16_str % (ATTRIBUTES[attr], text)
+            for attr in [attrs] if isinstance(attrs, str) or isinstance(attrs, int) else attrs:
+                if attr in ATTRIBUTES:
+                    text = fmt16_str % (ATTRIBUTES[attr], text)
         return text + RESET
     else:
         return text
