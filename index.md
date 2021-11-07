@@ -1,37 +1,16 @@
-## Welcome to GitHub Pages
+# termcolor
 
-You can use the [editor on GitHub](https://github.com/delameter/termcolor/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Code cheatsheet
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+| reset | `\033[0m` | | |
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/delameter/termcolor/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+| text color | oct | | | text color | oct | |
+|:--|:---|:-:|-|:--|:---|:-:|
+| black | `\033[0;30m` | | | gray | `\033[0;90m` | |
+| red | `\033[0;31m` | | | bright red | `\033[0;91m` | |
+| green | `\033[0;32m` | | | bright green | `\033[0;92m` | |
+| yellow | `\033[0;33m` | | | bright yellow | `\033[0;93m` | |
+| blue | `\033[0;34m` | | | bright blue | `\033[0;94m` | |
+| magneta | `\033[0;35m` | | | bright magneta | `\033[0;95m` | |
+| cyan | `\033[0;36m` | | | bright cyan | `\033[0;96m` | |
+| white | `\033[0;37m` | | | bright white | `\033[0;97m` | |
