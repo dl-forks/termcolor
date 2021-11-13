@@ -111,7 +111,7 @@ using <code class="highlighter-rouge">\e</code> instead of
     <tr>
       <td style="text-align: left">green</td>
       <td>
-          <code class="highlighter-rouge">\033[<span class="char-hl">42</span>m</code>
+          <code class="highlighter-rouge">\033[<span class="char-hl">32</span>m</code>
       </td>
       <td>
           <code class="highlighter-rouge">\033[<span class="char-hl">40</span>m</code>
