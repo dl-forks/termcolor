@@ -1,5 +1,8 @@
 ![](screenshot.png)
 
+📑 [Color codes cheatsheet](https://delameter.github.io/termcolor) |
+📦 [pypi/termcolor](http://pypi.python.org/pypi/termcolor)
+
 ## Example
 
 ```python
