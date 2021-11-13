@@ -6,6 +6,9 @@
 #main_content h1 {
   margin-block-start: 40px;
 }
+#main_content h2 {
+  margin-block-start: 30px;
+}
 code.highlighter-rouge {
   padding: 2px 6px;
 }
@@ -13,6 +16,26 @@ code.highlighter-rouge {
   font-weight: bold;
   color: #dbacd1;
 }
-td {
+table {
+  width: 100%;
+}
+td, th {
   text-align: center;
+}
+.smaller {
+  font-size: 80%;
+}
+table.smaller {
+  width: 90%;
+  margin-inline: auto;
+}
+.note {
+  color: #7f7f7f;
+}
+.footer {
+  margin-block-start: 60px;
+  padding-block-start: 30px;
+  border-top: 1px dashed #b5e853;
+  width: 50%;
+  margin-inline: auto;
 }
